@@ -37,13 +37,15 @@ app.start = function() {
         "password": appService.credentials.password
       }
 
-      console.log('dsConfig: ', dsConfig);
+      //console.log('dsConfig: ', dsConfig);
       app.dataSource('pivotal', dsConfig);
     }
 
+
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
-      console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
+      //console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
+      console.log('Browse your REST API at %s%s', appEnv.url, explorerPath);
     }
   });
 };

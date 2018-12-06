@@ -1,0 +1,11 @@
+{
+	"pivotal": {
+        "name": "pivotal",
+        "connector": "mysql",		
+        "host": "us-cdbr-iron-east-01.cleardb.net",
+        "port": 3306,
+        "database": "ad_7e7761ed6960b9d",
+        "username": "b4a3e10dea250d",
+        "password": "69987b8a"
+    }
+}

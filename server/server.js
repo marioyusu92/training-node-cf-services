@@ -4,12 +4,6 @@ var loopback = require('loopback');
 var boot = require('loopback-boot');
 var cfenv = require('cfenv');
 
-//var vcap_services = JSON.parse(process.env.VCAP_SERVICES)
-//var hostname = vcap_services.cleardb[0].credentials.hostname
-//var port = vcap_services.cleardb[0].credentials.port
-//var username = vcap_services.cleardb[0].credentials.username
-//var password = vcap_services.cleardb[0].credentials.password
-
 // get datasource service configuration from CF
 var appEnv = cfenv.getAppEnv();
 var appService = appEnv.getService('training-db-service');
@@ -26,6 +20,14 @@ app.start = function() {
     //console.log('Web server listening at: %s', baseUrl);
     console.log('Web server listening at: %s', appEnv.url);
 
+    //var vcap_services = JSON.parse(process.env.VCAP_SERVICES);
+    
+    //var host = vcap_services.cleardb[0].credentials.hostname;
+    //var port = vcap_services.cleardb[0].credentials.port;    
+    //var database = vcap_services.cleardb[0].credentials.name;
+    //var username = vcap_services.cleardb[0].credentials.username;
+    //var password = vcap_services.cleardb[0].credentials.password;
+
     if (appService != undefined) {
       var dsConfig = {
         "name": "pivotal",
@@ -40,7 +42,6 @@ app.start = function() {
       //console.log('dsConfig: ', dsConfig);
       app.dataSource('pivotal', dsConfig);
     }
-
 
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;

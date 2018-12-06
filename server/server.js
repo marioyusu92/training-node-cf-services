@@ -18,31 +18,35 @@ var app = module.exports = loopback();
 
 app.start = function() {
   // start the web server
-  return app.listen(function() {
+  //return app.listen(function() {
+  return app.listen(appEnv.port, appEnv.bind, function() {
     app.emit('started');
-    var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('Web server listening at: %s', baseUrl);
+
+    //var baseUrl = app.get('url').replace(/\/$/, '');
+    //console.log('Web server listening at: %s', baseUrl);
+    console.log('Web server listening at: %s', appEnv.url);
+
+    if (appService != undefined) {
+      var dsConfig = {
+        "name": "pivotal",
+        "connector": "mysql",  
+        "host": appService.credentials.hostname,
+        "port": appService.credentials.port,
+        "database": appService.credentials.name,
+        "username": appService.credentials.username,
+        "password": appService.credentials.password
+      }
+
+      console.log('dsConfig: ', dsConfig);
+      app.dataSource('pivotal', dsConfig);
+    }
+
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
       console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
     }
   });
 };
-
-if (appService != undefined) {
-  var dsConfig = {
-    "name": "pivotal",
-    "connector": "mysql",  
-    "host": appService.credentials.hostname,
-    "port": appService.credentials.port,
-    "database": appService.credentials.name,
-    "username": appService.credentials.username,
-    "password": appService.credentials.password
-  }
-
-  console.log('dsConfig: ', dsConfig);
-  app.dataSource('pivotal', dsConfig);
-}
 
 /*var dsConfig = {
     "name": "pivotal",

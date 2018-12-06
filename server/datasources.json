@@ -1,0 +1,11 @@
+{
+	"pivotal": {
+        "host": "localhost",
+        "port": 3306	,
+        "database": "pivotal",
+        "name": "pivotal",
+        "connector": "mysql",
+        "username": "root",
+        "password": "underground"
+    }
+}

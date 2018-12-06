@@ -1,0 +1,9 @@
+---
+applications:
+- name: training-node-cf-services
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  memory: 1024M
+  instances: 1
+  command: node server/server.js
+  services:
+  - training-db-service

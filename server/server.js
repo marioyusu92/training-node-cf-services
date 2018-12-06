@@ -50,18 +50,6 @@ app.start = function() {
   });
 };
 
-/*var dsConfig = {
-    "name": "pivotal",
-    "connector": "mysql",  
-    "host": '127.0.0.1',
-    "port": 3306,
-    "database": 'pivotal',
-    "username": 'root',
-    "password": 'xxx'
-  }
-console.log('dsConfig: ', dsConfig);
-app.dataSource('pivotal', dsConfig);*/
-
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {

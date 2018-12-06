@@ -1,0 +1,11 @@
+---
+applications:
+- name: training-node-cf-services
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  memory: 1024M
+  instances: 1
+  command: node server/server.js
+  env:
+    NODE_ENV: production
+  services:
+  - training-db-service

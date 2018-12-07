@@ -5,38 +5,89 @@
     "base": "PersistedModel",
     "idInjection": true,
     "options": {
-        "validateUpsert": true
+        "validateUpsert": true,
+        "mysql": {
+            "table": "product"
+        }        
     },
     "properties": {
         "code": {
             "type": "string",
             "required": true,
-            "comments": "Product code"
+            "comments": "Product code",
+            "mysql": {
+                "columnName": "code",
+                "dataType": "varchar",
+                "dataLength": 45,
+                "dataPrecision": null,
+                "dataScale": null,
+                "nullable": "N"
+            }            
         },
         "description": {
             "type": "string",
             "required": false,
-            "comments": "Product description"
+            "comments": "Product description",
+            "mysql": {
+                "columnName": "description",
+                "dataType": "varchar",
+                "dataLength": 255,
+                "dataPrecision": null,
+                "dataScale": null,
+                "nullable": "N"
+            }             
         },
         "price": {
             "type": "number",
             "required": true,
-            "comments": "Product price"
+            "comments": "Product price",
+            "mysql": {
+                "columnName": "price",
+                "dataType": "float",
+                "dataLength": null,
+                "dataPrecision": 12,
+                "dataScale": null,
+                "nullable": "Y"
+            }
         },
         "active": {
             "type": "boolean",
             "required": true,
-            "comments": "Product status"
+            "comments": "Product status",
+            "mysql": {
+                "columnName": "active",
+                "dataType": "tinyint",
+                "dataLength": null,
+                "dataPrecision": 1,
+                "dataScale": 0,
+                "nullable": "N"
+            }            
         },
         "created_at": {
             "type": "date",
             "required": false,
-            "comments": "Product creation date"
+            "comments": "Product creation date",
+            "mysql": {
+                "columnName": "created_at",
+                "dataType": "datetime",
+                "dataLength": null,
+                "dataPrecision": null,
+                "dataScale": null,
+                "nullable": "Y"
+            }            
         },
         "updated_at": {
             "type": "date",
             "required": false,
-            "comments": "Product updated date"
+            "comments": "Product updated date",
+            "mysql": {
+                "columnName": "updated_at",
+                "dataType": "datetime",
+                "dataLength": null,
+                "dataPrecision": null,
+                "dataScale": null,
+                "nullable": "Y"
+            }            
         }
     },
     "validations": [],

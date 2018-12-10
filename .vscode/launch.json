@@ -7,11 +7,9 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Iniciar programa",
-            "program": "${workspaceFolder}/server/server.js",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
+            "name": "Launch API",
+            "protocol": "inspector",
+            "program": "${workspaceFolder}/server/server.js"
         }
     ]
 }
